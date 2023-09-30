@@ -1,0 +1,1 @@
+export {TodoContext, TodoProvider, useTodo} from './TodoContext'      // it is created for easy import
