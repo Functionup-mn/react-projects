@@ -1,4 +1,3 @@
-
 import './App.css'
 import AddTodo from './componets/AddTodo'
 import Todos from './componets/Todos'
