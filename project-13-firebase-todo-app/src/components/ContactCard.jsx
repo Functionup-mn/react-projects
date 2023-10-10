@@ -6,14 +6,16 @@ import { RiEditCircleLine } from 'react-icons/ri'
 import { db } from '../config/firebase'
 import useDiscloser from '../hooks/useDiscloser'
 import AddAndUpdateContact from './AddAndUpdateContact'
+import {toast} from 'react-toastify'
 
 function ContactCard({contact}) {
+
     const {isOpen, onClose, onOpen} = useDiscloser() // custom hook-> self made
 
     const deleteContact = async(id) => {
         try {   
          await deleteDoc((doc(db, 'contacts', id))) // to write doc is very important. In this method i am using together
-
+         toast.success('Conatact Deleted Successfully')
         } catch (error) {
             console.log(error);
         }
@@ -34,7 +36,7 @@ function ContactCard({contact}) {
               <IoMdTrash onClick={()=>deleteContact(contact.id)} className=' text-orange-600 cursor-pointer'/>
             </div>
           </div>
-          <AddAndUpdateContact isOpen={isOpen} onClose={onClose}/>
+          <AddAndUpdateContact isOpen={isOpen} onClose={onClose} isUpdate contact={contact}/>
           </>
   )
 }

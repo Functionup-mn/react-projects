@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 function useDiscloser() {
     const [isOpen, setIsOpen] = useState(false)
@@ -9,7 +9,7 @@ function useDiscloser() {
     const onClose = () =>{
       setIsOpen(false)
     }
-  return ( onClose, onOpen, isOpen)
+  return {onClose, onOpen, isOpen}
 }
 
 export default useDiscloser
